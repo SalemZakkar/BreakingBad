@@ -15,74 +15,68 @@ class _ActorHolderState extends State<ActorHolder> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     ThemeData themeData = Theme.of(context);
-    return Column(
-      children: [
-        Container(
-          width: size.width * 0.9,
-          height: 400,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50), color: themeData.cardColor),
-          child: InkWell(
-              onTap: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 340,
-                    width: size.width * 0.9,
-                    decoration: BoxDecoration(
-                        color: themeData.cardColor,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(50),
-                            topRight: Radius.circular(50))),
-                    child: CachedNetworkImage(
-                      imageBuilder: (context , imageProvider){
-                        return Container(
-                          decoration: BoxDecoration(
-
-                              color: themeData.cardColor,
-                              borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(50),
-                                  topRight: Radius.circular(50),
-
-                              )
-                          ,image: DecorationImage(
-                            image: imageProvider , fit: BoxFit.cover,
-                            alignment: Alignment.topCenter
-                          )
-                          ),
-
-                        );
-                      },
-                      imageUrl: widget.character.img ?? "",
-                      errorWidget:  (context , url , error ) => const ErrorNetworkWidget(),
-                      placeholder: (context , url) => const Loading(),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
+    return Container(
+      width: size.width * 0.45,
+      height: 250,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50), color: themeData.cardColor),
+      child: InkWell(
+          onTap: () {},
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: 200,
+                width: size.width * 0.45,
+                decoration: BoxDecoration(
+                    color: themeData.cardColor,
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25))),
+                child: CachedNetworkImage(
+                  imageBuilder: (context , imageProvider){
+                    return Container(
                       decoration: BoxDecoration(
+
                           color: themeData.cardColor,
                           borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(50),
-                              bottomRight: Radius.circular(50))),
-                      alignment: Alignment.center,
+                              topLeft: Radius.circular(25),
+                              topRight: Radius.circular(25),
 
-                      child: Text(
-                        widget.character.name ?? "N/A",
-                        textScaleFactor: 1.4,
-                        style: TextStyle(
-                            color: themeData.textTheme.bodyText2!.color,
-                            fontWeight: FontWeight.w400),
+                          )
+                      ,image: DecorationImage(
+                        image: imageProvider , fit: BoxFit.cover,
+                        alignment: Alignment.topCenter
+                      )
                       ),
-                    ),
-                  )
-                ],
-              )),
-        ),
-        const Text("\n")
-      ],
+
+                    );
+                  },
+                  imageUrl: widget.character.img ?? "",
+                  errorWidget:  (context , url , error ) => const ErrorNetworkWidget(),
+                  placeholder: (context , url) => const Loading(),
+                ),
+              ),
+              Container(
+                height: 50,
+                width: size.width,
+                decoration: BoxDecoration(
+                    color: themeData.cardColor,
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(25),
+                        bottomRight: Radius.circular(25))),
+                alignment: Alignment.center,
+                child: Text(
+                  widget.character.name ?? "N/A",
+                  textScaleFactor: 1.2,
+                  style: TextStyle(
+                      color: themeData.textTheme.bodyText1!.color,
+                      fontWeight: FontWeight.w400),
+                ),
+              )
+            ],
+          )),
     );
   }
 }

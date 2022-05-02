@@ -1,8 +1,8 @@
 import 'package:breaking_bad/buisness_logic/cubit/characters_cubit.dart';
 import 'package:breaking_bad/data/api/characters_api.dart';
-import 'package:breaking_bad/data/models/character_model.dart';
 import 'package:breaking_bad/data/repository/characters_repository.dart';
 import 'package:breaking_bad/ui/screens/home/success.dart';
+import 'package:breaking_bad/ui/screens/home/theme_button.dart';
 import 'package:breaking_bad/ui/widgets/center_error.dart';
 import 'package:breaking_bad/ui/widgets/center_loading.dart';
 import 'package:flutter/material.dart';
@@ -24,8 +24,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           "BreakingBad Characters",
-          style: TextStyle(color: Theme.of(context).textTheme.bodyText2!.color),
+          style: TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
         ),
+        actions: const [
+           ThemeButton()
+        ],
       ),
       body: BlocProvider(
         create: (context) {

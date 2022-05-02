@@ -13,4 +13,18 @@ class Messages {
   {
     debugPrint("Success Getting Data --> ( " + text + " )");
   }
+  static void setSettingSharedPreference(String text , List<String> options)
+  {
+    debugPrint("Setting Options Shared Preferences --> ( " + text + " )");
+    debugPrint(options.toString());
+  }
+  static void getSettingSharedPreferences(String text , List<String> options)
+  {
+    debugPrint("Getting Options Shared Preferences --> ( " + text + " )");
+    debugPrint(options.toString());
+  }
+  static void setTheme(String text)
+  {
+    debugPrint("Set Theme --> ( " + text + " )");
+  }
 }
