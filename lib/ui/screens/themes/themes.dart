@@ -11,6 +11,7 @@ class Themes extends StatefulWidget {
 
 class _ThemesState extends State<Themes> {
   bool isSearch = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

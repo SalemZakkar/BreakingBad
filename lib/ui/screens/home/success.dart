@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class HomeSuccess extends StatefulWidget {
   final List<Character> characters;
+
   const HomeSuccess({Key? key, required this.characters}) : super(key: key);
 
   @override
@@ -23,11 +24,11 @@ class _HomeSuccessState extends State<HomeSuccess> {
         alignment: Alignment.center,
         child: GridView.builder(
           padding: const EdgeInsets.all(20),
-          gridDelegate:  const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisSpacing: 20, crossAxisSpacing: 20
-          ,mainAxisExtent: 250
-
-          ),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              mainAxisExtent: 250),
           itemBuilder: (context, index) {
             return ActorHolder(character: widget.characters[index]);
           },

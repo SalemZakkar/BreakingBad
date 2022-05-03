@@ -7,8 +7,8 @@ part 'theme_mode_state.dart';
 
 class ThemeModeCubit extends Cubit<ThemeModeState> {
   ThemeModeCubit() : super(ThemeModeInitial());
-  void setTheme(int theme)
-  {
+
+  void setTheme(int theme) {
     Messages.setTheme(theme.toString());
     emit(ThemeModeChange(theme));
   }

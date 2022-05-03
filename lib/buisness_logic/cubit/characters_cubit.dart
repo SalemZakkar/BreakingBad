@@ -11,24 +11,25 @@ String apiName = "Characters";
 
 class CharactersCubit extends Cubit<CharactersState> {
   final CharactersRepository characterRepository;
+
   CharactersCubit(this.characterRepository) : super(CharactersInitial());
+
   void getCharacters() async {
     emit(CharactersIsLoading());
-    try{
+    try {
       final List<Character>? list = await characterRepository.getCharacters();
       emit(CharactersSuccess(list!));
-    }catch(e)
-    {
+    } catch (e) {
       emit(CharactersFail());
     }
   }
+
   void getQuotes(String id) async {
     emit(QuotesIsLoading());
-    try{
+    try {
       final List<Quote>? list = await characterRepository.getQuotes(id);
       emit(QuotesLoaded(list!));
-    }catch(e)
-    {
+    } catch (e) {
       emit(QuotesError());
     }
   }

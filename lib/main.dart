@@ -8,8 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await optionService.init();
-  runApp(
-      MultiBlocProvider(
+  runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
         create: (context) => themeModeCubit,
@@ -27,17 +26,17 @@ class BreakingBadApp extends StatefulWidget {
 }
 
 class _BreakingBadAppState extends State<BreakingBadApp> {
-   int activeTheme = AppTheme.initTheme();
+  int activeTheme = AppTheme.initTheme();
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<ThemeModeCubit, ThemeModeState>(
       listener: (context, state) {
-        if(state is ThemeModeChange)
-          {
-            setState(() {
-              activeTheme = state.index;
-            });
-          }
+        if (state is ThemeModeChange) {
+          setState(() {
+            activeTheme = state.index;
+          });
+        }
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -49,4 +48,3 @@ class _BreakingBadAppState extends State<BreakingBadApp> {
     );
   }
 }
-

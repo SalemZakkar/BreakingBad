@@ -7,10 +7,13 @@ import 'package:flutter/material.dart';
 
 class ActorHolder extends StatefulWidget {
   final Character character;
-  const ActorHolder({Key? key , required this.character}) : super(key: key);
+
+  const ActorHolder({Key? key, required this.character}) : super(key: key);
+
   @override
   State<ActorHolder> createState() => _ActorHolderState();
 }
+
 class _ActorHolderState extends State<ActorHolder> {
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,8 @@ class _ActorHolderState extends State<ActorHolder> {
           borderRadius: BorderRadius.circular(50), color: themeData.cardColor),
       child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, AppRouter.character , arguments: widget.character);
+            Navigator.pushNamed(context, AppRouter.character,
+                arguments: widget.character);
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,33 +42,29 @@ class _ActorHolderState extends State<ActorHolder> {
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25))),
                 child: CachedNetworkImage(
-                  imageBuilder: (context , imageProvider){
+                  imageBuilder: (context, imageProvider) {
                     return Container(
                       decoration: BoxDecoration(
-
                           color: themeData.cardColor,
                           borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(25),
-                              topRight: Radius.circular(25),
-
-                          )
-                      ,image: DecorationImage(
-                        image: imageProvider , fit: BoxFit.cover,
-                        alignment: Alignment.topCenter
-                      )
-                      ),
-
+                            topLeft: Radius.circular(25),
+                            topRight: Radius.circular(25),
+                          ),
+                          image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.cover,
+                              alignment: Alignment.topCenter)),
                     );
                   },
                   imageUrl: widget.character.img ?? "",
-                  errorWidget:  (context , url , error ) => const ErrorNetworkWidget(),
-                  placeholder: (context , url) => const Loading(),
+                  errorWidget: (context, url, error) =>
+                      const ErrorNetworkWidget(),
+                  placeholder: (context, url) => const Loading(),
                 ),
               ),
               Container(
                 height: 50,
                 width: size.width,
-
                 decoration: BoxDecoration(
                     color: themeData.cardColor,
                     borderRadius: const BorderRadius.only(
@@ -73,7 +73,7 @@ class _ActorHolderState extends State<ActorHolder> {
                 alignment: Alignment.center,
                 child: Text(
                   widget.character.name ?? "N/A",
-                   textScaleFactor: 1.1,
+                  textScaleFactor: 1.1,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: themeData.textTheme.bodyText1!.color,

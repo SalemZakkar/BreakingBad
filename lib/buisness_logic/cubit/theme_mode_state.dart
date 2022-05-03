@@ -9,5 +9,6 @@ class ThemeModeInitial extends ThemeModeState {
 
 class ThemeModeChange extends ThemeModeState {
   final int index;
+
   ThemeModeChange(this.index);
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ColorPallet extends StatefulWidget {
   final ThemeData themeData;
+
   const ColorPallet({Key? key, required this.themeData}) : super(key: key);
 
   @override

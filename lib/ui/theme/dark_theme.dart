@@ -10,16 +10,13 @@ ThemeData darkTheme = ThemeData(
         border: InputBorder.none,
         focusedBorder: InputBorder.none,
         enabledBorder: InputBorder.none,
-        hintStyle: TextStyle(
-            color: Colors.grey
-        )
-
-    ),
+        hintStyle: TextStyle(color: Colors.grey)),
     appBarTheme: const AppBarTheme(
-        elevation: 0,
-        color: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.white),
-        titleTextStyle:  TextStyle(color: Colors.white , fontWeight: FontWeight.bold),
+      elevation: 0,
+      color: Colors.transparent,
+      iconTheme: IconThemeData(color: Colors.white),
+      titleTextStyle:
+          TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
     ),
     textTheme: const TextTheme(
         bodyText1: TextStyle(color: Colors.white),

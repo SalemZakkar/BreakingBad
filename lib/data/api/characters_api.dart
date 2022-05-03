@@ -1,4 +1,4 @@
-import 'package:breaking_bad/data/strings.dart';
+import 'package:breaking_bad/constants/strings.dart';
 import 'package:breaking_bad/logs/messages.dart';
 import 'package:dio/dio.dart';
 

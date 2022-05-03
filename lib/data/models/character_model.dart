@@ -12,17 +12,18 @@
 
 class Character {
   Character({
-      int? charId, 
-      String? name, 
-      String? birthday, 
-      List<String>? occupation, 
-      String? img, 
-      String? status, 
-      String? nickname, 
-      List<int>? appearance, 
-      String? portrayed, 
-      String? category, 
-      List<int>? betterCallSaulAppearance,}){
+    int? charId,
+    String? name,
+    String? birthday,
+    List<String>? occupation,
+    String? img,
+    String? status,
+    String? nickname,
+    List<int>? appearance,
+    String? portrayed,
+    String? category,
+    List<int>? betterCallSaulAppearance,
+  }) {
     _charId = charId;
     _name = name;
     _birthday = birthday;
@@ -34,21 +35,26 @@ class Character {
     _portrayed = portrayed;
     _category = category;
     _betterCallSaulAppearance = betterCallSaulAppearance;
-}
+  }
 
   Character.fromJson(dynamic json) {
     _charId = json['char_id'];
     _name = json['name'];
     _birthday = json['birthday'];
-    _occupation = json['occupation'] != null ? json['occupation'].cast<String>() : [];
+    _occupation =
+        json['occupation'] != null ? json['occupation'].cast<String>() : [];
     _img = json['img'];
     _status = json['status'];
     _nickname = json['nickname'];
-    _appearance = json['appearance'] != null ? json['appearance'].cast<int>() : [];
+    _appearance =
+        json['appearance'] != null ? json['appearance'].cast<int>() : [];
     _portrayed = json['portrayed'];
     _category = json['category'];
-    _betterCallSaulAppearance = json['better_call_saul_appearance'] != null ? json['better_call_saul_appearance'].cast<int>() : [];
+    _betterCallSaulAppearance = json['better_call_saul_appearance'] != null
+        ? json['better_call_saul_appearance'].cast<int>()
+        : [];
   }
+
   int? _charId;
   String? _name;
   String? _birthday;
@@ -60,39 +66,55 @@ class Character {
   String? _portrayed;
   String? _category;
   List<int>? _betterCallSaulAppearance;
-Character copyWith({  int? charId,
-  String? name,
-  String? birthday,
-  List<String>? occupation,
-  String? img,
-  String? status,
-  String? nickname,
-  List<int>? appearance,
-  String? portrayed,
-  String? category,
-  List<int>? betterCallSaulAppearance,
-}) => Character(  charId: charId ?? _charId,
-  name: name ?? _name,
-  birthday: birthday ?? _birthday,
-  occupation: occupation ?? _occupation,
-  img: img ?? _img,
-  status: status ?? _status,
-  nickname: nickname ?? _nickname,
-  appearance: appearance ?? _appearance,
-  portrayed: portrayed ?? _portrayed,
-  category: category ?? _category,
-  betterCallSaulAppearance: betterCallSaulAppearance ?? _betterCallSaulAppearance,
-);
+
+  Character copyWith({
+    int? charId,
+    String? name,
+    String? birthday,
+    List<String>? occupation,
+    String? img,
+    String? status,
+    String? nickname,
+    List<int>? appearance,
+    String? portrayed,
+    String? category,
+    List<int>? betterCallSaulAppearance,
+  }) =>
+      Character(
+        charId: charId ?? _charId,
+        name: name ?? _name,
+        birthday: birthday ?? _birthday,
+        occupation: occupation ?? _occupation,
+        img: img ?? _img,
+        status: status ?? _status,
+        nickname: nickname ?? _nickname,
+        appearance: appearance ?? _appearance,
+        portrayed: portrayed ?? _portrayed,
+        category: category ?? _category,
+        betterCallSaulAppearance:
+            betterCallSaulAppearance ?? _betterCallSaulAppearance,
+      );
+
   int? get charId => _charId;
+
   String? get name => _name;
+
   String? get birthday => _birthday;
+
   List<String>? get occupation => _occupation;
+
   String? get img => _img;
+
   String? get status => _status;
+
   String? get nickname => _nickname;
+
   List<int>? get appearance => _appearance;
+
   String? get portrayed => _portrayed;
+
   String? get category => _category;
+
   List<int>? get betterCallSaulAppearance => _betterCallSaulAppearance;
 
   Map<String, dynamic> toJson() {
@@ -110,5 +132,4 @@ Character copyWith({  int? charId,
     map['better_call_saul_appearance'] = _betterCallSaulAppearance;
     return map;
   }
-
 }
