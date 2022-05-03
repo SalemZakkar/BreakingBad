@@ -15,5 +15,15 @@ class CharactersFail extends CharactersState {
 class CharactersIsLoading extends CharactersState {
   CharactersIsLoading();
 }
+class QuotesError extends CharactersState {
+
+}
+class QuotesIsLoading extends CharactersState{
+
+}
+class QuotesLoaded extends CharactersState{
+  final List<Quote> quotes;
+  QuotesLoaded(this.quotes);
+}
 
 

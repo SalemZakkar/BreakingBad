@@ -6,9 +6,8 @@ abstract class ThemeModeState {}
 class ThemeModeInitial extends ThemeModeState {
   final ThemeData activeTheme = AppTheme.light;
 }
-class ThemeModeDark extends ThemeModeState {
-  final ThemeData activeTheme = AppTheme.dark;
-}
-class ThemeModeLight extends ThemeModeState {
-  final ThemeData activeTheme = AppTheme.light;
+
+class ThemeModeChange extends ThemeModeState {
+  final int index;
+  ThemeModeChange(this.index);
 }

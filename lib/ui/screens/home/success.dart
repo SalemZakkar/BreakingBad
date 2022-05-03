@@ -15,8 +15,8 @@ class _HomeSuccessState extends State<HomeSuccess> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    double gridRatio = size.height * 0.3 / size.width;
-    ThemeData themeData = Theme.of(context);
+    // double gridRatio = size.height * 0.3 / size.width;
+    // ThemeData themeData = Theme.of(context);
     return Container(
         width: size.width,
         height: size.height,

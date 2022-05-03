@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await optionService.init();
-  AppTheme.initTheme();
   runApp(
       MultiBlocProvider(
     providers: [
@@ -20,29 +19,29 @@ void main() async {
   ));
 }
 
-class BreakingBadApp extends StatelessWidget {
+class BreakingBadApp extends StatefulWidget {
   const BreakingBadApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<BreakingBadApp> createState() => _BreakingBadAppState();
+}
 
-    ThemeModeState themeModeState =
-        BlocProvider.of<ThemeModeCubit>(context).state;
-    ThemeData activeTheme = (themeModeState is ThemeModeLight ? AppTheme.light : AppTheme.dark);
+class _BreakingBadAppState extends State<BreakingBadApp> {
+   int activeTheme = AppTheme.initTheme();
+  @override
+  Widget build(BuildContext context) {
     return BlocListener<ThemeModeCubit, ThemeModeState>(
       listener: (context, state) {
-        if(state is ThemeModeLight)
+        if(state is ThemeModeChange)
           {
-            activeTheme = AppTheme.light;
-          }
-        else
-          {
-            activeTheme = AppTheme.dark;
+            setState(() {
+              activeTheme = state.index;
+            });
           }
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: activeTheme,
+        theme: appThemes[activeTheme],
         onGenerateRoute: AppRouter.generate,
         initialRoute: AppRouter.home,
         builder: (context, child) => child!,
@@ -50,3 +49,4 @@ class BreakingBadApp extends StatelessWidget {
     );
   }
 }
+

@@ -22,9 +22,9 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "BreakingBad Characters",
-          style: TextStyle(color: Theme.of(context).textTheme.bodyText1!.color),
+          textScaleFactor: 1.1,
         ),
         actions: const [
            ThemeButton()

@@ -1,11 +1,9 @@
-import 'dart:convert';
-
 import 'package:breaking_bad/data/strings.dart';
-import 'package:breaking_bad/data/models/character_model.dart';
 import 'package:breaking_bad/logs/messages.dart';
 import 'package:dio/dio.dart';
 
 String nameApi = "Characters";
+String nameApi2 = "Quotes";
 
 class CharactersAPI {
   late Dio dio;
@@ -16,9 +14,6 @@ class CharactersAPI {
       receiveDataWhenStatusError: true,
       connectTimeout: 20 * 1000,
       receiveTimeout: 20 * 1000,
-
-
-
     );
     dio = Dio(baseOptions);
   }
@@ -29,9 +24,22 @@ class CharactersAPI {
       Response response = await dio.get(APPStrings.charactersUrl);
       Messages.successGetData(nameApi);
       return response;
-    } catch(e){
-      Messages.errorGetData(nameApi , e.toString());
+    } catch (e) {
+      Messages.errorGetData(nameApi, e.toString());
       return null;
     }
+  }
+
+  Future<Response?> getQuotes(String name) async {
+    String sName = name.replaceAll(RegExp("\\s+"), "+");
+    Messages.getData(nameApi2);
+    try {
+      Response response = await dio.get(APPStrings.quotesUrl + sName);
+      Messages.successGetData(nameApi2);
+      return response;
+    } catch (e) {
+      Messages.errorGetData(nameApi2, e.toString());
+      return null;
     }
   }
+}

@@ -8,15 +8,20 @@ import 'dark_theme.dart';
 class AppTheme {
   static ThemeData dark = darkTheme;
   static ThemeData light = lightTheme;
-  static void setTheme(String theme)
+  static void setTheme(int theme)
   {
     optionService.setTheme(theme);
     themeModeCubit.setTheme(theme);
   }
-  static void initTheme()
+  static int initTheme()
   {
-    String theme = optionService.getTheme();
+    int theme = optionService.getTheme();
     themeModeCubit.setTheme(theme);
+    return theme;
   }
 }
 ThemeModeCubit themeModeCubit = ThemeModeCubit();
+List<ThemeData> appThemes = [
+  lightTheme,
+  darkTheme
+];

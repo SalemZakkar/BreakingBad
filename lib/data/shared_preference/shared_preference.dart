@@ -9,16 +9,16 @@ class OptionService {
     return true;
   }
 
-  void setTheme(String theme) {
-    Messages.setSettingSharedPreference(APPStrings.theme, [theme]);
-    sharedPreferences.setString(APPStrings.theme, theme);
+  void setTheme(int theme) {
+    Messages.setSettingSharedPreference(APPStrings.theme, [theme.toString()]);
+    sharedPreferences.setInt(APPStrings.theme, theme);
   }
 
-  String getTheme() {
-    String? theme = sharedPreferences.getString(APPStrings.theme);
-    Messages.getSettingSharedPreferences(APPStrings.theme, [theme ?? APPStrings.noData]);
+  int getTheme() {
+    int? theme = sharedPreferences.getInt(APPStrings.theme);
+    Messages.getSettingSharedPreferences(APPStrings.theme, [(theme == null ? APPStrings.noData : theme.toString())]);
     if (theme == null) {
-      return APPStrings.lightTheme;
+      return 0;
     }
     return theme;
   }
